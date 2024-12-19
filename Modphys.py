@@ -15,7 +15,7 @@ signals.pop(0)
 backgrounds.pop(0)
 for i in range(len(signals)):
     signals[i] = float(signals[i])
-backgrounds = backgrounds[:-22]
+#backgrounds = backgrounds[:-22]
 for i in range(len(backgrounds)):
     backgrounds[i] = float(backgrounds[i])
 
@@ -28,7 +28,9 @@ for i in range(int(max(signals))):
 
 print("Invariant mass max Punzi criterion: " + str(max(eqval)));
 print("Cut at: >" + str(eqval.index(max(eqval))))
-
+tempval = len([x for x in signals if x>3600])
+tempval2 = len([x for x in backgrounds if x>3600])
+print("practical value cut at >3600: " + str((18880000*tempval/len(signals))/(2.5+math.sqrt(284894400*tempval2/len(backgrounds)))))
 
 signals2 = []
 backgrounds2 = []
